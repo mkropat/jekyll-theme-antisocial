@@ -29,9 +29,9 @@ rss: rss
 
 show_excerpts: false # set to true to show excerpts on the homepage
 
-# Minima date format
+# Antisocial date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
-minima:
+antisocial:
   date_format: "%b %-d, %Y"
 
 # If you want to link only specific pages in your header, uncomment
@@ -41,7 +41,7 @@ minima:
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: jekyll-theme-antisocial
 exclude:
   - Gemfile
   - Gemfile.lock
