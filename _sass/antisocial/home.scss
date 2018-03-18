@@ -1,0 +1,56 @@
+.home {
+  h3 {
+    margin-top: 5px;
+  }
+
+  .post-meta {
+    margin: 45px 0 0 0;
+  }
+
+  &.show-excerpts {
+    h3 {
+      margin-top: 30px;
+    }
+
+    .post-meta:not(:first-child) {
+      margin: 100px 0 0 0;
+    }
+  }
+}
+
+.pagination {
+  color: $lighter-color;
+  display: table;
+  font-size: 17px;
+  margin-top: 50px;
+  width: 100%;
+
+  .previous, .page_number, .next {
+    display: table-cell;
+  }
+
+  .previous {
+    text-align: right;
+  }
+
+  .previous, .next {
+    width: 40%;
+  }
+
+  .page_number {
+    text-align: center;
+    width: 20%;
+  }
+
+  a:link, a:visited, a:focus, a:hover, a:active { 
+    text-decoration: none;
+  }
+
+  a:link, a:visited, a:focus {
+    color: $lighter-color;
+  }
+
+  a:hover, a:active {
+    color: $default-color;
+  }
+}

@@ -1,8 +1,3 @@
-@charset 'utf-8';
-@import 'normalize';
-
-@import 'antisocial/default-variables';
-
 $code-font: Menlo, Monaco, "Courier New", Courier, monospace;
 $sans-font: Geneva, Arial, sans-serif;
 $serif-font: Cambria, Georgia, "Times New Roman", Times, serif;
@@ -18,7 +13,3 @@ $accent-color: #af1cae;
 $accent-highlight-color: #d66de8;
 
 $is-wide-screen: "(min-width: 768px)";
-
-@import 'antisocial/typography';
-@import 'antisocial/layout';
-@import 'antisocial/syntax';

@@ -2,33 +2,60 @@
 layout: default
 ---
 
-<div class="home">
+{%- assign home_classes = "home" -%}
+{%- if site.show_excerpts -%}
+  {%- assign home_classes = home_classes | append: " show-excerpts" -%}
+{%- endif -%}
+
+<div class="{{ home_classes }}">
   {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
+    <h1>{{ page.title }}</h1>
   {%- endif -%}
 
   {{ content }}
 
-  {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
-    <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li>
-        {%- assign date_format = site.antisocial.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
-    </ul>
-
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  {%- assign posts = site.posts -%}
+  {%- if site.paginate > 0 -%}
+    {%- assign posts = paginator.posts -%}
   {%- endif -%}
 
+  {%- if posts.size > 0 -%}
+    {%- for post in posts -%}
+      {%- include post-meta.html author=post.author content=post.content page_date=post.date -%}
+      <h3>
+        <a href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+        </a>
+      </h3>
+      {%- if site.show_excerpts -%}
+        {%- assign excerpt = post.excerpt | strip -%}
+        {{ excerpt }}
+        <p>
+          <a class="button" href="{{ post.url | relative_url }}">
+            {%- if excerpt == "" -%}
+              Read More
+            {%- else -%}
+              Continue Reading
+            {%- endif -%}
+          </a>
+        </p>
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if site.paginate > 0 -%}
+      <div class="pagination">
+        {%- if paginator.previous_page -%}
+          <a href="{{ paginator.previous_page_path }}" class="previous">← Newer</a>
+        {%- else -%}
+          <span class="previous"></span>
+        {%- endif -%}
+        <span class="page_number">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+        {%- if paginator.next_page -%}
+          <a href="{{ paginator.next_page_path }}" class="next">Older →</a>
+        {%- else -%}
+          <span class="next"></span>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endif -%}
 </div>

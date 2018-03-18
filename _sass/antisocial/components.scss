@@ -1,0 +1,40 @@
+.button {
+  border: 1px solid $accent-color;
+  border-radius: 4px;
+  color: $accent-color;
+  display: inline-block;
+  font: 16px $sans-font;
+  height: 37px;
+  line-height: 35px;
+  padding: 0 16px;
+
+  &:link, &:visited, &:focus, &:hover, &:active {
+    text-decoration: none;
+  }
+
+  &:link, &:visited {
+    color: $accent-color;
+  }
+
+  &:focus, &:hover, &:active {
+    border-color: $accent-highlight-color;
+    color: $accent-highlight-color;
+  }
+}
+
+.social-media-list {
+  a:hover, a:active {
+    .svg-icon {
+      fill: $default-color;
+    }
+  }
+}
+
+.svg-icon {
+  display: inline-block;
+  fill: $lightest-color;
+  height: 16px;
+  padding-right: 5px;
+  vertical-align: text-top;
+  width: 16px;
+}

@@ -1,0 +1,14 @@
+body {
+  padding: 0 20px;
+
+  @media #{$is-wide-screen} {
+    margin: 0 auto;
+    width: 700px;
+  }
+}
+
+@import './components';
+@import './footer';
+@import './header';
+@import './home';
+@import './post';

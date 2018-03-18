@@ -1,0 +1,24 @@
+.author {
+  color: $accent-color;
+
+  a:link, a:visited, a:focus, a:hover, a:active {
+    text-decoration: none;
+  }
+
+  a:link, a:visited, a:focus {
+    color: $accent-color;
+  }
+
+  a:hover, a:active {
+    color: $accent-highlight-color;
+  }
+}
+
+.post-meta {
+  color: $lightest-color;
+  fill: $lightest-color;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 30px;
+}

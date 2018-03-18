@@ -1,0 +1,37 @@
+{% comment %}
+Reading time estimate courtesy of: https://milanaryal.com/implementing-medium-inspired-estimated-reading-time-into-jekyll/
+{% endcomment %}
+{%- assign reading_time = include.content | strip_html | number_of_words | plus:91 | divided_by:180 -%}
+{%- if reading_time <= 1 -%}
+  {%- assign reading_time = '1 min read' -%}
+{%- else -%}
+  {%- assign reading_time = reading_time | append:' min read' -%}
+{%- endif -%}
+
+{%- assign current_year = "now" | date: "%Y" -%}
+{%- assign post_year = include.page_date | date: "%Y" -%}
+{%- assign date_format = "%b %-d, %Y" -%}
+{%- if current_year == post_year -%}
+  {%- assign date_format = "%b %-d" -%}
+{%- endif -%}
+
+{%- assign author = include.author -%}
+{%- assign author_url = include.author_url -%}
+{%- unless author -%}
+  {%- assign author = site.author -%}
+  {%- assign author_url = site.author_url -%}
+{%- endunless -%}
+
+<div class="post-meta">
+  {%- if author -%}
+    <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      {%- if author_url -%}
+        <a href="{{ author_url }}" itemprop="name">{{ author }}</a>
+      {%- else -%}
+        <span itemprop="name">{{ author }}</span>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+  <time datetime="{{ include.page_date | date_to_xmlschema }}"  itemprop="datePublished">{{ include.page_date | date: date_format }}</time>
+  • {{ reading_time }}
+</div>
