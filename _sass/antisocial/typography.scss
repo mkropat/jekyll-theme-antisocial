@@ -170,3 +170,17 @@ a:link, a:visited, a:focus, a:hover, a:active {
 em {
   color: $light-color;
 }
+
+kbd {
+  border: 1px solid $lightest-color;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 $lighter-color;
+  color: $light-color;
+  font-family: $code-font;
+  font-size: 13px;
+  line-height: 1.58;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding: 3px 5px;
+  vertical-align: middle;
+}
