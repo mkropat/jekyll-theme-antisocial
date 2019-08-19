@@ -2,6 +2,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {%- seo -%}
+  <style>
+  body {
+    opacity: 0;
+    visibility: hidden;
+  }
+  </style>
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}?v={{ site.time | date: '%s%N' }}">
   {%- feed_meta -%}
 </head>
