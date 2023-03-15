@@ -44,11 +44,4 @@ github_username:  jekyll
 # - about.html
 
 # Build settings
-markdown: kramdown
 theme: jekyll-theme-antisocial
-exclude:
-  - CODE_OF_CONDUCT.md
-  - Gemfile
-  - Gemfile.lock
-  - jekyll-theme-antisocial.gemspec
-  - LICENSE.txt
